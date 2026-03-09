@@ -1,0 +1,48 @@
+---
+description: Core ethics reference — applied to all product work
+globs:
+alwaysApply: true
+---
+
+# Product Ethics Principles — Core Reference
+
+This project applies the **Product Ethics Principles** framework (spencergoldade.ca / github.com/spencergoldade/Product-Ethics-Principles).
+
+## The 18 Principles
+
+**Foundational** (violations actively harm users — non-negotiable):
+- **Accessibility** — Usable by people with varied abilities, devices, connections
+- **Privacy** — Collect minimally, use only as consented, treat data as trust
+- **Security** — Protect data and system integrity from unauthorized access
+- **Safety** — Prevent harm; protect vulnerable populations; provide remedy
+- **Algorithmic Accountability** — Transparent, contestable, audited for disparate outcomes
+- **User Health** — No persuasive manipulation; don't optimize engagement over wellbeing
+- **Labor Ethics** — Builders and operators have the same dignity claim as users
+- **Economic Justice** — Don't exploit information asymmetry or psychological vulnerability
+
+**Structural** (violations limit who benefits — address systematically):
+- **Diversity** — Actively design for diverse users; shaped by diverse builders
+- **Equity** — Remove structural barriers; recognize unequal starting points
+- **Inclusion** — Enable full participation, not just entry
+- **Belonging** — No user systematically made to feel unwelcome or othered
+- **Representation & Stigma** — No dehumanizing language, imagery, or defaults
+- **Autonomy & Agency** — Meaningful, informed choices; no friction manipulation
+- **Honesty & Truth** — No dark patterns, undisclosed AI, or epistemic manipulation
+- **False Obsolescence** — Don't artificially shorten useful life or trap users
+- **Environmental Sustainability** — Minimize ecological footprint; no greenwashing
+- **Civic Responsibility** — Don't corrode democratic discourse or enable surveillance
+
+## When to raise ethics concerns
+
+Raise a concern whenever a design decision, feature, or implementation:
+- Could exclude or harm users based on ability, identity, or economic status
+- Collects, infers, or exposes user data beyond declared purpose
+- Uses behavioral psychology to override user judgment
+- Produces or could produce disparate outcomes across demographic groups
+- Obscures costs, origins, or commercial incentives from users
+- Could be weaponized against the users it claims to serve
+
+When uncertain whether something raises a concern: **raise it**. The cost of a false positive is a conversation. The cost of a missed violation is harm.
+
+Full principle definitions, anti-patterns, and failure modes:
+→ github.com/spencergoldade/Product-Ethics-Principles/blob/main/principles/v2.0.0.md

@@ -1,0 +1,79 @@
+---
+description: Ethics lens for product specs, PRDs, design briefs, and strategy documents
+globs: ["**/docs/**/*.md", "**/specs/**/*.md", "**/planning/**/*.md", "**/rfcs/**/*.md", "**/*spec*.md", "**/*prd*.md", "**/*brief*.md", "**/*strategy*.md"]
+alwaysApply: false
+---
+
+# Product Ethics — Spec & PRD Review
+
+When writing or reviewing a product specification, PRD, design brief, or strategy document, integrate these questions into the document itself — not as a separate ethics review, but as part of the thinking.
+
+## Before writing the spec
+
+**Name the default user — explicitly.**
+Every spec has an implicit assumed user. Name them. Then ask who is excluded by that assumption and whether that exclusion is justified. A spec that does not name its default user has made that choice invisibly.
+
+**Define the harm surface.**
+Before describing what the feature does, describe what it could be used to do by a bad actor, an edge-case user, or a platform operator whose interests diverge from users'. This is not pessimism — it is the minimum viable safety design.
+
+## Required sections in every spec
+
+These are not bureaucratic additions. They are design questions that will be asked eventually — better in the spec than in the post-mortem.
+
+### Affected populations
+- Who is the primary user for this feature?
+- Who are the secondary users (people affected by the feature who aren't using it directly)?
+- Which vulnerable populations (minors, domestic violence survivors, people in mental health crises, users in authoritarian contexts) could be affected?
+- Which users are implicitly excluded by the current design?
+
+### Data implications
+- What new data does this feature collect?
+- What is the minimum data required for this feature to function?
+- What is the retention period and deletion pathway?
+- What third parties will receive this data?
+
+### Default state rationale
+- What are the defaults for this feature?
+- Who does each default serve — the user or the platform?
+- How will users discover and change defaults they don't want?
+
+### Engagement and health implications
+- Does this feature introduce any engagement mechanic (notifications, streaks, feeds, social signals)?
+- If yes: what is the off-ramp, and how is compulsive use mitigated?
+
+### Algorithmic implications (if applicable)
+- Does this feature rank, sort, recommend, score, or filter?
+- What is the plan for disparate impact testing before launch?
+- How will affected users understand and contest algorithmic decisions?
+
+### Accessibility plan
+- What WCAG level is this feature targeting?
+- What assistive technology testing is planned?
+- What is the experience on low-end devices and constrained connections?
+
+## The six questions a spec must answer before it is complete
+
+1. **Who can't use this?** Name every user segment structurally excluded by the current design.
+2. **What's the worst thing someone could do with this?** Document it. Design against it.
+3. **What does the default state say about whose interests this serves?** Platform or user?
+4. **What data does this create, and what's its lifecycle?** Collection → use → retention → deletion.
+5. **How does a user leave, reduce, or turn this off?** If the answer is "they can't," that is a design decision that must be explicitly justified.
+6. **Five years from now, what will we wish we had thought about today?** Write it down now.
+
+## Ethics sign-off
+
+Before a spec moves to development, include a brief ethics sign-off:
+
+```
+Ethics Review
+─────────────
+Reviewed by:        [name]
+Date:               [date]
+Foundational risks identified:   [none | description]
+Structural risks identified:     [none | description]
+Open questions requiring resolution before launch:
+  - [item]
+  - [item]
+```
+
+This is not a compliance checkbox. It is a documented conversation that the team had.

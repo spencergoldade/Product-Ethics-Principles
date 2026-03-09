@@ -1,0 +1,116 @@
+---
+description: Full ethics audit for pull requests and code review. Use when asked to review a PR, audit a feature, or conduct an ethics assessment.
+globs:
+alwaysApply: false
+---
+
+# Product Ethics — PR & Code Review Audit
+
+Use this when reviewing a pull request, conducting an ethics audit, or assessing a shipped feature against the principles framework.
+
+## How to run this review
+
+For each principle below, assess: **pass**, **concern**, or **not applicable**. Document concerns with specific file/line references where possible. A concern is not a blocker by default — it is a required conversation before merge.
+
+---
+
+## Foundational Principles (concerns here are merge blockers)
+
+### Accessibility
+- Are new UI elements keyboard-navigable with visible focus states?
+- Do new images have appropriate alt text?
+- Does new copy use color as the only differentiator anywhere?
+- Are new timed interactions user-adjustable?
+- Has new UI been tested with a screen reader or automated accessibility tool?
+
+### Privacy
+- Does this PR collect any new user data? If so, is it documented and minimized?
+- Is any existing data now used for a new purpose without renewed consent?
+- Are new third-party integrations listed and data-sharing implications assessed?
+- Does any new logging capture PII?
+
+### Security
+- Are new inputs validated and sanitized?
+- Are new API endpoints authenticated and authorized correctly?
+- Does any new code store or transmit sensitive data insecurely?
+- Are new dependencies known-safe (no flagged CVEs)?
+
+### Safety
+- Does this PR introduce any feature that could be used to harm, harass, or surveil users?
+- If new content moderation or reporting features are added, are they accessible and functional?
+- Are vulnerable populations (minors, domestic violence survivors, people in crisis) considered in new user-facing flows?
+
+### Algorithmic Accountability
+- Does this PR introduce or modify any ranking, recommendation, scoring, or filtering logic?
+- If yes: is there a disparate impact assessment, or is one planned before launch?
+- Are consequential algorithmic decisions explainable and contestable by affected users?
+
+### User Health
+- Does this PR add or modify any engagement mechanic (notifications, streaks, feeds, reactions)?
+- If yes: has it been evaluated for behavioral manipulation potential?
+- Does any new feature make it harder for users to stop using the product?
+
+### Honesty & Truth
+- Does this PR introduce any dark pattern in a flow (consent, cancellation, purchase, upgrade)?
+- Is AI-generated content labeled where applicable?
+- Are sponsored or commercially influenced recommendations disclosed?
+
+### Economic Justice
+- Does this PR introduce or modify any monetization mechanic?
+- If yes: are costs fully disclosed, cancellation frictionless, and gambling-adjacent mechanics protected?
+
+---
+
+## Structural Principles (concerns here require a resolution plan before merge)
+
+### Diversity & Inclusion
+- Does new default content (illustrations, names, examples) represent demographic diversity?
+- Do new form fields avoid binary or culturally specific assumptions?
+- Are new features available with equivalent quality across device types and connection speeds?
+
+### Equity
+- Does this change work as well for users on low-end devices and slow connections?
+- Does this change move any safety or core features behind a paywall?
+
+### Belonging
+- Do new community or social features have moderation design included, not deferred?
+- Do new community guidelines changes treat all demographic groups consistently?
+
+### Representation & Stigma
+- Does new copy use stigmatizing language about any group?
+- Does new generated content default to demographically skewed representations?
+
+### Autonomy & Agency
+- Do new or changed defaults serve user interests, with documented rationale?
+- Is account deletion, data export, or feature opt-out affected by this PR?
+
+### False Obsolescence
+- Does this PR deprecate any feature, API, or data format users depend on?
+- If yes: is the deprecation notice period adequate and migration support provided?
+
+### Environmental Sustainability
+- Does this PR significantly increase compute load (new ML model, large-scale processing)?
+- If yes: has the energy/carbon cost been considered in the implementation choice?
+
+### Labor Ethics
+- Does this PR affect content moderation workflows? If so, are moderator exposure limits and support considered?
+- Does this PR use AI training data from external sources? If so, has the labor provenance been assessed?
+
+### Civic Responsibility
+- Does this PR modify content recommendation or amplification logic?
+- If yes: has the civic impact (polarization, radicalization, institutional trust) been assessed?
+
+---
+
+## Review summary format
+
+When completing a review, summarize as:
+
+```
+Ethics Review Summary
+─────────────────────
+Foundational concerns:   [none | list]
+Structural concerns:     [none | list]
+Merge recommendation:    [approved | approved with conditions | blocked]
+Conditions (if any):     [specific required changes or tracked issues]
+```

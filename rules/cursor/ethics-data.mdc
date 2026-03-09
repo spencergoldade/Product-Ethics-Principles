@@ -1,0 +1,52 @@
+---
+description: Ethics checks for data handling, APIs, databases, and backend logic
+globs: ["**/*.sql", "**/models/**", "**/api/**", "**/routes/**", "**/schema*", "**/migration*", "**/seed*", "**/prisma/**", "**/drizzle/**", "**/data/**"]
+alwaysApply: false
+---
+
+# Product Ethics — Data & API Checks
+
+When writing or reviewing data models, APIs, migrations, or backend logic, apply these checks.
+
+## Privacy — Data Minimization (Foundational)
+- [ ] Every field collected has a documented, necessary purpose — no "might be useful later" fields
+- [ ] Sensitive data (health, location, financial, biometric, behavioral patterns) has explicit justification
+- [ ] Data retention periods are defined; old data is deleted, not just ignored
+- [ ] PII is not logged in application logs or error tracking by default
+- [ ] Third-party services receiving data are inventoried and justified
+
+## Privacy — Purpose Limitation (Foundational)
+- [ ] Data collected for feature A is not silently used for feature B
+- [ ] Analytics and behavioral data pipelines are separated from operational data with documented access controls
+- [ ] Data shared with third parties is limited to what those parties need for their declared function
+
+## Security (Foundational)
+- [ ] Authentication uses industry-standard methods (OAuth 2.0, JWT with proper expiry, session management)
+- [ ] Passwords are hashed with bcrypt, Argon2, or scrypt — never MD5, SHA1, or plain text
+- [ ] All data in transit uses TLS 1.2 minimum
+- [ ] Sensitive data at rest is encrypted
+- [ ] Principle of least privilege: each role/service accesses only what it needs
+- [ ] Input is validated and sanitized; SQL injection, XSS, and CSRF protections are in place
+- [ ] Third-party dependencies are tracked for known vulnerabilities
+
+## Algorithmic Accountability (Foundational — if ML/AI/ranking logic present)
+- [ ] Model training data sources are documented
+- [ ] Known demographic performance differentials are documented in a model card
+- [ ] Disparate impact testing is planned or complete before deployment
+- [ ] Consequential decisions (hiring, credit, content removal, risk scoring) have a human review pathway
+- [ ] Users affected by algorithmic decisions can receive a plain-language explanation
+
+## Surveillance & Safety (Foundational)
+- [ ] Location data, read receipts, last-seen, and activity indicators have been evaluated for intimate partner violence misuse
+- [ ] Admin/operator visibility into user data is limited to what is operationally necessary and logged
+- [ ] APIs that could enable mass user surveillance have access controls and rate limiting
+
+## Children's Data (Foundational — if product may be accessed by minors)
+- [ ] Data practices meet COPPA (US), GDPR Article 8 (EU), PIPEDA/CPPA (Canada) as applicable
+- [ ] Age verification or parental consent mechanisms are in place where legally required
+
+## Equity — Infrastructure (Structural)
+- [ ] API response times and payload sizes are acceptable on 3G-equivalent connections
+- [ ] Pagination or streaming is used for large datasets rather than requiring full loads
+
+**Document as you go:** For any data field, API endpoint, or model that touches sensitive data, add an inline comment explaining what it collects, why, and what its retention policy is. This is not overhead — it is the minimum viable data governance.

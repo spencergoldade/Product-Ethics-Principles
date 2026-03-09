@@ -1,0 +1,49 @@
+---
+description: Ethics checks for UI components, frontend code, and visual design
+globs: ["**/*.jsx", "**/*.tsx", "**/*.vue", "**/*.html", "**/*.css", "**/*.scss", "**/*.svelte"]
+alwaysApply: false
+---
+
+# Product Ethics — UI & Frontend Checks
+
+When writing or reviewing UI components, apply these checks before completing any implementation.
+
+## Accessibility (Foundational)
+- [ ] Interactive elements are keyboard-navigable (focus states visible, tab order logical)
+- [ ] Images have descriptive `alt` text; decorative images have `alt=""`
+- [ ] Color is never the sole means of conveying information (add icon, text, or pattern)
+- [ ] Text contrast meets WCAG 2.1 AA minimum (4.5:1 body, 3:1 large text)
+- [ ] Motion and animation respect `prefers-reduced-motion`
+- [ ] Form inputs have associated `<label>` elements, not just placeholder text
+- [ ] Error messages are specific, visible, and not color-only
+- [ ] Touch targets are at least 44x44px
+
+## Representation & Stigma (Structural)
+- [ ] Illustrations, avatars, and example content represent demographic diversity — not as decoration but as default
+- [ ] Form fields don't assume binary gender, Western name format, or nuclear family structure unless legally required
+- [ ] UI copy doesn't use stigmatizing, pathologizing, or dehumanizing language
+- [ ] Generated or stock imagery has been checked for demographic default bias
+
+## Dark Patterns / Honesty (Foundational)
+- [ ] No confirmshaming ("No thanks, I don't want to save money")
+- [ ] No artificial urgency (countdown timers that reset, manufactured scarcity)
+- [ ] Destructive or irreversible actions require explicit confirmation
+- [ ] Privacy-protective choices are at least as prominent as permissive choices
+- [ ] Cancellation / opt-out flows are as simple as sign-up / opt-in flows
+
+## Autonomy & Defaults (Structural)
+- [ ] Default settings serve the user's interest, not the platform's
+- [ ] Every significant default can be documented with a user-interest rationale
+- [ ] Users can discover and change defaults without expert navigation
+
+## User Health (Foundational — if engagement features present)
+- [ ] No infinite scroll without a visible stopping point or user-controlled pagination
+- [ ] Notification logic is triggered by user value, not re-engagement optimization
+- [ ] Streak or reward mechanics don't generate loss aversion as a primary driver
+- [ ] Usage time indicators or break prompts are present if session length is a metric
+
+## AI-Generated Content (Foundational — if applicable)
+- [ ] AI-generated text, images, audio, or video is labeled as such
+- [ ] Users can distinguish AI responses from human responses
+
+**Raise before shipping:** If any check cannot be confirmed, raise it as a concern in the PR or design review. Do not mark "to be addressed later" without a linked issue and milestone.

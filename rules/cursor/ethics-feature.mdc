@@ -1,0 +1,50 @@
+---
+description: Ethics review for new features before and during implementation
+globs: 
+alwaysApply: false
+---
+
+# Product Ethics — New Feature Review
+
+Before implementing a new feature, work through this review. Raise concerns before writing code, not after.
+
+## Define the default user — then challenge it
+
+Before designing the feature, name the user you're implicitly building for. Then ask:
+- Who is **not** served by this design as currently conceived?
+- What structural barriers (economic, linguistic, geographic, cognitive, physical) does this feature create or ignore?
+- Does this feature work for users on low-end devices and constrained connections?
+- Does this feature work for users who don't share the design team's cultural context?
+
+## The five questions every feature must answer
+
+**1. What data does this collect, and is it the minimum necessary?**
+Name every new data point. If you can't justify it in one sentence, don't collect it.
+
+**2. Who could be harmed by this feature, and how?**
+Consider: harassment vectors, surveillance misuse, psychological manipulation, financial exploitation, exclusion of vulnerable populations. If a bad actor got access to this feature, what's the worst-case scenario? Have you designed against it?
+
+**3. What does the default state of this feature communicate?**
+Default settings are policy decisions. Whose interests does the default serve — the user's or the platform's? Document the rationale for every default before shipping.
+
+**4. Does this feature produce different outcomes for different demographic groups?**
+If the feature involves ranking, sorting, recommending, scoring, or filtering — what is your plan for testing disparate impact before launch?
+
+**5. Is the user in control?**
+Can users meaningfully configure, reduce, or disable this feature? Is the off-ramp as accessible as the on-ramp?
+
+## Principles most often violated by new features
+
+**Privacy** — New features almost always collect new data. Apply data minimization before the model is built, not after.
+
+**User Health** — New engagement features (notifications, streaks, feeds, reactions) should be evaluated for behavioral manipulation before shipping.
+
+**Autonomy & Agency** — New defaults and new opt-in/opt-out flows are autonomy decisions. Apply the dark patterns checklist.
+
+**Belonging** — New social features, community tools, or communication features need moderation design from day one. "We'll add reporting later" is a belonging failure waiting to ship.
+
+**Algorithmic Accountability** — Any feature with a ranking, recommendation, or scoring component is an algorithmic system. It needs a disparate impact plan before launch.
+
+## Raise before building
+
+If the answer to any question above is "we'll figure it out after launch," that is a flag. Ethics debt compounds faster than technical debt. Raise the concern in the feature spec, the design review, or the PR — not in the post-mortem.

@@ -1,0 +1,79 @@
+# Product Ethics Principles — Cursor Rules
+# Status: PLANNED — not yet implemented
+#
+# This file will contain Cursor rules for applying the 18 Product Ethics
+# Principles during product development and design review. When complete,
+# dropping this file into a project's .cursor/ directory will enable
+# ethics-aware review in Cursor's AI assistant.
+#
+# If you'd like to help build these rules, see CONTRIBUTING.md and
+# open an issue tagged `cursor-rules`.
+
+# =============================================================================
+# PLANNED SCOPE
+# =============================================================================
+#
+# These rules are intended to operate in two modes:
+#
+# DESIGN REVIEW MODE
+#   When reviewing a feature spec, user flow, or design document, the AI will:
+#   - Identify which of the 18 principles the feature touches
+#   - Flag potential violations by severity (Foundational → block; Structural →
+#     flag for resolution; Aspirational → surface as improvement opportunity)
+#   - Suggest specific In Practice criteria to verify
+#   - Reference the relevant Anti-Patterns from the principles document
+#
+# CODE REVIEW MODE
+#   When reviewing code, the AI will:
+#   - Flag patterns that commonly produce ethical violations (dark patterns,
+#     tracking implementations, notification abuse, paywall mechanics)
+#   - Identify accessibility failures at the code level (missing ARIA, color-
+#     only affordances, motion without reduced-motion support)
+#   - Surface privacy and security concerns (unnecessary data collection,
+#     insecure storage, overly permissive data sharing)
+#   - Check for algorithmic accountability gaps (undocumented model decisions,
+#     missing audit logging, absence of disparate impact testing)
+
+# =============================================================================
+# PLANNED RULE STRUCTURE
+# =============================================================================
+#
+# Each principle will have a corresponding rule block covering:
+#
+#   [principle-name]
+#   trigger_on: <file types, keywords, or design patterns that activate the rule>
+#   severity: <Foundational | Structural | Aspirational>
+#   check: <what to evaluate>
+#   flag_if: <conditions that constitute a violation>
+#   suggest: <what the AI should recommend instead>
+#   reference: principles/v2.0.0.md#<principle-name>
+#
+# Example (illustrative, not final):
+#
+#   [privacy]
+#   trigger_on: analytics setup, tracking pixels, cookie consent, data schema
+#   severity: Foundational
+#   check: Is data collection limited to what the product demonstrably needs?
+#   flag_if: Collection scope exceeds stated product purpose; no consent mechanism
+#   suggest: Apply data minimization; implement granular consent; document
+#            retention policy
+#   reference: principles/v2.0.0.md#6-privacy
+
+# =============================================================================
+# CONTRIBUTING TO THESE RULES
+# =============================================================================
+#
+# Good Cursor rules are:
+# - Specific enough to trigger on real patterns, not on everything
+# - Actionable (they tell the AI what to suggest, not just what to flag)
+# - Calibrated to severity (Foundational rules should stop work; Aspirational
+#   rules should surface suggestions without interrupting flow)
+#
+# To contribute:
+# 1. Open an issue tagged `cursor-rules`
+# 2. Propose rule logic for one or more principles using the structure above
+# 3. Include examples of code or design artifacts that should trigger the rule
+#    and examples that should not (to calibrate specificity)
+#
+# See: https://github.com/spencergoldade/product-ethics-principles
+# License: CC BY 4.0 — Spencer Goldade

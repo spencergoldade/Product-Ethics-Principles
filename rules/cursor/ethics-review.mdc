@@ -22,6 +22,7 @@ For each principle below, assess: **pass**, **concern**, or **not applicable**. 
 - Does new copy use color as the only differentiator anywhere?
 - Are new timed interactions user-adjustable?
 - Has new UI been tested with a screen reader or automated accessibility tool?
+- Is contrast computed against the actual opaque ancestor background, not the page body? Is any new UI text below the 16px primary / 14px secondary floor? See `ethics-ui.mdc` → Colour Contrast & Text Size.
 
 ### Privacy
 - Does this PR collect any new user data? If so, is it documented and minimized?

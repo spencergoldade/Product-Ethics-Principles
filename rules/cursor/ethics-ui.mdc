@@ -12,11 +12,37 @@ When writing or reviewing UI components, apply these checks before completing an
 - [ ] Interactive elements are keyboard-navigable (focus states visible, tab order logical)
 - [ ] Images have descriptive `alt` text; decorative images have `alt=""`
 - [ ] Color is never the sole means of conveying information (add icon, text, or pattern)
-- [ ] Text contrast meets WCAG 2.1 AA minimum (4.5:1 body, 3:1 large text)
 - [ ] Motion and animation respect `prefers-reduced-motion`
 - [ ] Form inputs have associated `<label>` elements, not just placeholder text
 - [ ] Error messages are specific, visible, and not color-only
 - [ ] Touch targets are at least 44x44px
+
+### Colour Contrast & Text Size — How to Check
+
+AI agents consistently miscompute contrast by comparing a foreground colour against the wrong background. Follow this procedure exactly.
+
+1. Identify the element's resolved foreground colour (text colour, icon fill, or border colour for affordances).
+2. Find the *actual* background by walking up the parent chain:
+   - Start at the element's direct parent.
+   - If that parent's background is transparent (`transparent`, `rgba(_, _, _, 0)`, unset, or inherited from a transparent ancestor) — keep walking up.
+   - Stop at the first ancestor with an opaque background colour.
+   - That ancestor's background is the comparison target.
+3. If a semi-transparent overlay sits between the foreground and the opaque ancestor, composite the overlay onto the ancestor first, then compare against the composited colour.
+4. Compute the contrast ratio against THAT colour:
+   - Body text: ≥ 4.5:1 (WCAG 2.1 AA)
+   - Large text (≥ 24px regular, or ≥ 18.66px bold): ≥ 3:1
+   - Non-text UI (icons, focus rings, form borders, meaningful chart elements): ≥ 3:1 against adjacent colours
+5. Text size floors:
+   - Primary / body text: 16px minimum.
+   - Secondary text (captions, helper text, badge labels, dense table cells): 14px minimum, and must still meet the contrast ratios above.
+   - Smaller than 14px is not acceptable for any UI text a user is expected to read.
+
+Common mistakes AI agents make:
+- Comparing against `body` or `:root` background when the element sits inside a card, modal, header, or other container with its own background.
+- Treating `opacity` on a parent as equivalent to a darker background — it isn't; opacity multiplies through every child and breaks in dark mode.
+- Reducing visual prominence with `opacity: 0.6` on text instead of picking a lower-contrast colour token. Use real colour values.
+- Skipping the parent-walk when the element has no inline background, assuming "no background = white."
+- Flagging text as failing accessibility purely because it is small, without checking the size floors above.
 
 ## Representation & Stigma (Structural)
 - [ ] Illustrations, avatars, and example content represent demographic diversity — not as decoration but as default

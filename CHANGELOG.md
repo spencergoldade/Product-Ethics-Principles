@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.0.1 — May 2026
+- Add explicit colour-contrast measurement procedure for AI agents
+  (`rules/cursor/ethics-ui.mdc`, `rules/claude-code/CLAUDE.md`,
+  `rules/cursor/ethics-review.mdc`)
+- Define text-size floors: 16px primary, 14px secondary
+- Document common AI-agent contrast mistakes and the
+  opacity-vs-colour anti-pattern
+
 ## v2.0.0 — March 2026
 - Expanded from 12 to 18 principles
 - Added: Algorithmic Accountability, Autonomy & Agency,

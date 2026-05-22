@@ -124,9 +124,23 @@ Before implementing, work through:
 6. Is the user genuinely in control?
 
 ### When writing UI components
-Check for: keyboard navigation, color contrast, alt text, motion controls,
+Check for: keyboard navigation, colour contrast, alt text, motion controls,
 inclusive form fields, representative default content, and absence of
 dark patterns in all interactive flows.
+
+**Colour contrast — measure correctly:**
+
+1. Get the element's resolved foreground colour.
+2. Walk up the parent chain; skip every transparent ancestor; stop at the first opaque background. That is your comparison target — not `body` or `:root`.
+3. Composite any semi-transparent overlays before comparing.
+4. Ratios: ≥ 4.5:1 body, ≥ 3:1 large text (≥ 24px regular / 18.66px bold), ≥ 3:1 non-text UI.
+
+**Text size floors:**
+
+- Primary / body text: 16px minimum.
+- Secondary text (captions, helper, badges, dense cells): 14px minimum, contrast ratios still apply.
+
+**Do not** use `opacity` to reduce text prominence — pick a lower-contrast colour token instead. Opacity multiplies through children and breaks in dark mode.
 
 ### When writing data models or APIs
 Check for: data minimization, purpose limitation, PII in logs, encryption,

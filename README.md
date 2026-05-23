@@ -1,7 +1,7 @@
 # Product Ethics Principles
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Version](https://img.shields.io/badge/version-2.0.1-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.0.2-blue.svg)](CHANGELOG.md)
 [![Principles](https://img.shields.io/badge/principles-18-green.svg)](principles/v2.0.0.md)
 
 A practitioner's reference for building products that are good for the world.

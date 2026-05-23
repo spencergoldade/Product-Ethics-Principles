@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.0.2 — May 2026
+- Add Operationalization line to each of the 18 principles, pointing
+  to the closest established measurement or testing standard (WCAG,
+  NIST SSDF, GDPR, SCI/ISO 21031, EU AI Act, FTC ROSCA, EU DSA,
+  and others); flag principles with no mature standard
+- Add vulnerable-populations cross-cut to Review mode in the preface
+- Bump version markers across README, principles, and rules
+
 ## v2.0.1 — May 2026
 - Add explicit colour-contrast measurement procedure for AI agents
   (`rules/cursor/ethics-ui.mdc`, `rules/claude-code/CLAUDE.md`,

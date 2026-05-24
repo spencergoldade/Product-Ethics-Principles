@@ -9,6 +9,28 @@ in your development workflow.
 
 These rules read severity tags (Foundational, Structural, Aspirational) directly from the principles file and translate them into tool behaviour. See [Enforcement by severity](../principles/v2.0.0.md#enforcement-by-severity) for the canonical mapping.
 
+## CI gates by Foundational principle
+
+Continuous Integration, or "CI," is a software development practice where developers frequently merge their code changes into a central repository. Every time code is merged, automated builds and tests are triggered to verify that the new changes integrate seamlessly without breaking the application
+
+Foundational violations of the Product Ethics Principles should cause a warning in CI. Each row below pairs a principle with the CI tool identified by research evidence. Rows without an evidence-named tool point to the relevant standard or review mode instead.
+
+| # | Principle | Tools named in evidence | What the gate checks | Evidence source |
+|---|-----------|-------------------------|----------------------|-----------------|
+| 1 | Accessibility | `axe-core`, `pa11y`, `lighthouse` | WCAG 2.2 AA conformance, automated subset (~30-40% of issues) | Empirical report |
+| 6 | Privacy | No CI-grade tool named in evidence | Data minimization and consent flows reviewed at design time; secret leakage covered under the Security row | Empirical report; Sciendo 2025 review |
+| 7 | Security | `semgrep`; `Dependabot`, `Renovate`, `Snyk` (dependencies); `GitGuardian`, `Trufflehog`, GitHub built-in scanner (secrets); SBOM tooling | Known-bad code patterns, vulnerable dependencies, secret leakage, supply-chain provenance | Empirical report; NIST SSDF |
+| 8 | Safety | No CI-grade tool named in evidence | Pre-launch risk assessment (governance review); per-population vulnerability audits | Empirical report; UK ICO Children's Code; US Surgeon General 2023 |
+| 10 | Algorithmic Accountability (Foundational sub-case) | Hugging Face model cards at release | Model card present and complete at every model release | Empirical report; FAccT 2024-25 |
+| 11 | User Health (Foundational sub-case: deliberate manipulation) | No CI-grade tool named in evidence | Manipulation-pattern review at design time | Empirical report; npj Digital Medicine 2025 |
+| 13 | Honesty & Truth (Foundational sub-case: AI disclosure) | C2PA Content Credentials | Provenance metadata present on AI-generated images and video at publish time | Empirical report; Mozilla 2024 |
+| 15 | Economic Justice (Foundational sub-case: predatory features) | No CI-grade tool named in evidence | Dark-pattern review using Brignull's taxonomy at design time | Empirical report; FTC 2022; ICPEN 2024 |
+| 17 | Labor Ethics | No CI-grade tool named in evidence | Supply-chain labor audit at quarterly governance review | Empirical report; Steiger CHI 2021; Middlesex 2025 |
+
+**Reading the table.** A `No CI-grade tool named in evidence` row is itself a finding, not a placeholder. It means the empirical research base reviewed so far in the creation of the Product Ethics Principles does not name a tool that runs at CI gate time for that principle. Adopters who know of one may wire it, and contributors may recommend it, but the framework does not currently recommend a specific tool for those rows.
+
+**Scope.** This table covers Foundational and compound-Foundational sub-cases only. Structural and Aspirational principles route through review cycles rather than CI gates.
+
 ## Cursor Rules
 
 **Location:** `rules/cursor/`
@@ -100,6 +122,6 @@ to address.
 
 ## Version
 
-These rules are calibrated to **Principles v2.0.3** (May 2026).
+These rules are calibrated to **Principles v2.0.4** (May 2026).
 When the principles are updated, rule files are updated in the same release.
 See the root CHANGELOG.md for version history.

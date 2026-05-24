@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.4 (May 2026)
+- Added `CI gates by Foundational principle` table to `rules/README.md`. Pairs Foundational and compound-Foundational principles with evidence-named CI tools. Rows without an evidence-named tool point to the relevant standard or review mode.
+- Bumped version markers across README, principles, and rules.
+
 ## v2.0.3 (May 2026)
 - Bind enforcement to severity tiers. Foundational tier: refuse at generation time and warn in CI. Structural tier: flag and explain. Aspirational tier: governance review only. Compound severities apply per sub-case.
 - Added preambles to `rules/cursor/ethics-core.mdc` and `rules/claude-code/CLAUDE.md` defining tool behaviour per tier. Sibling `.mdc` files reference the core preamble.

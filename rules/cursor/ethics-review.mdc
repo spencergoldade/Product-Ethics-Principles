@@ -8,6 +8,8 @@ alwaysApply: false
 
 Use this when reviewing a pull request, conducting an ethics audit, or assessing a shipped feature against the principles framework.
 
+*Severity enforcement: see `ethics-core.mdc`, section "How to act on severity tags."*
+
 ## How to run this review
 
 For each principle below, assess: **pass**, **concern**, or **not applicable**. Document concerns with specific file/line references where possible. A concern is not a blocker by default — it is a required conversation before merge.

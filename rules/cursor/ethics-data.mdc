@@ -8,6 +8,8 @@ alwaysApply: false
 
 When writing or reviewing data models, APIs, migrations, or backend logic, apply these checks.
 
+*Severity enforcement: see `ethics-core.mdc`, section "How to act on severity tags."*
+
 ## Privacy — Data Minimization (Foundational)
 - [ ] Every field collected has a documented, necessary purpose — no "might be useful later" fields
 - [ ] Sensitive data (health, location, financial, biometric, behavioral patterns) has explicit justification

@@ -13,14 +13,14 @@ Maintained by [Spencer Goldade](https://spencergoldade.ca) · CC BY 4.0
 ## What this is
 
 A heuristic framework for product designers, product managers, and the
-strategists and DEI leaders who work alongside them — in the tradition of
+strategists and DEI leaders who work alongside them, in the tradition of
 [Nielsen's 10 Usability Heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/)
 and [Tognazzini's First Principles of Interaction Design](https://asktog.com/atc/principles-of-interaction-design/).
 
 Where those frameworks focus on functional usability, these 18 principles
 focus on the **moral, ethical, and social impact** of what we build.
 
-Every principle is written to be *violable* — defining failure as clearly as
+Every principle is written to be *violable*, defining failure as clearly as
 success. A principle that can't be violated can't guide a decision.
 
 ---
@@ -50,9 +50,9 @@ success. A principle that can't be violated can't guide a decision.
 
 **Severity levels:**  
 
-- **Foundational** — Violations actively harm users. Non-negotiable.  
-- **Structural** — Violations limit who can benefit from the system.  
-- **Aspirational** — The system could do more good than it currently does.  
+- **Foundational**: Violations actively harm users. Non-negotiable.  
+- **Structural**: Violations limit who can benefit from the system.  
+- **Aspirational**: The system could do more good than it currently does.  
 
 Each principle includes: intent, in-practice criteria, anti-patterns,
 real-world failure modes, connections to other principles, and
@@ -75,12 +75,14 @@ section gives you the one-sentence definition for each.
 Drop the rules and skills into your project so your AI tools apply
 the framework automatically:
 
-**Cursor** — Copy `rules/cursor/*.mdc` into your project's `.cursor/rules/` directory.
+**Cursor**: Copy `rules/cursor/*.mdc` into your project's `.cursor/rules/` directory.
 Six rules fire automatically at the right moments: always-on reference,
 UI work, data/API work, new features, code review, and spec writing.
 
-**Claude Code** — Copy `rules/claude-code/CLAUDE.md` into your project root.
+**Claude Code**: Copy `rules/claude-code/CLAUDE.md` into your project root.
 Claude Code will apply the 18 principles throughout agentic sessions.
+
+Sometimes, operationalizing a principle like these when it comes to AI tools is as easy as pointing the tool at a standardized industry regulation, measurement, or framework.
 
 → [Full installation instructions](rules/README.md)
 
@@ -111,11 +113,11 @@ These questions apply to any product decision:
 This framework is maintained as a living document. Contributions welcome:
 
 
-- **Amending existing principles** — evidence of real-world failure modes,
+- **Amending existing principles**: evidence of real-world failure modes,
   updated anti-patterns, improved in-practice criteria
-- **Proposing new principles** — with rationale, full six-section structure,
+- **Proposing new principles**: with rationale, full six-section structure,
   and evidence of scope not covered by existing principles
-- **Improving the rules/skills** — better Cursor rules, Claude Code
+- **Improving the rules/skills**: better Cursor rules, Claude Code
   skill improvements, new tool integrations
 
 → [Contributing guide](CONTRIBUTING.md)
@@ -139,5 +141,5 @@ This framework is maintained as a living document. Contributions welcome:
 
 ## License
 
-[Creative Commons Attribution 4.0 International](LICENSE) —
+[Creative Commons Attribution 4.0 International](LICENSE):
 free to use, adapt, and build on with attribution to Spencer Goldade.

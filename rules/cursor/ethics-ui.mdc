@@ -8,6 +8,8 @@ alwaysApply: false
 
 When writing or reviewing UI components, apply these checks before completing any implementation.
 
+*Severity enforcement: see `ethics-core.mdc`, section "How to act on severity tags."*
+
 ## Accessibility (Foundational)
 - [ ] Interactive elements are keyboard-navigable (focus states visible, tab order logical)
 - [ ] Images have descriptive `alt` text; decorative images have `alt=""`

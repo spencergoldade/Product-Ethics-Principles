@@ -5,6 +5,10 @@ in your development workflow.
 
 ---
 
+### Severity-driven enforcement
+
+These rules read severity tags (Foundational, Structural, Aspirational) directly from the principles file and translate them into tool behaviour. See [Enforcement by severity](../principles/v2.0.0.md#enforcement-by-severity) for the canonical mapping.
+
 ## Cursor Rules
 
 **Location:** `rules/cursor/`
@@ -96,6 +100,6 @@ to address.
 
 ## Version
 
-These rules are calibrated to **Principles v2.0.2** (May 2026).
+These rules are calibrated to **Principles v2.0.3** (May 2026).
 When the principles are updated, rule files are updated in the same release.
 See the root CHANGELOG.md for version history.

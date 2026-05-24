@@ -8,6 +8,8 @@ alwaysApply: false
 
 When writing or reviewing a product specification, PRD, design brief, or strategy document, integrate these questions into the document itself — not as a separate ethics review, but as part of the thinking.
 
+*Severity enforcement: see `ethics-core.mdc`, section "How to act on severity tags."*
+
 ## Before writing the spec
 
 **Name the default user — explicitly.**

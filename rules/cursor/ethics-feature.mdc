@@ -8,6 +8,8 @@ alwaysApply: false
 
 Before implementing a new feature, work through this review. Raise concerns before writing code, not after.
 
+*Severity enforcement: see `ethics-core.mdc`, section "How to act on severity tags."*
+
 ## Define the default user — then challenge it
 
 Before designing the feature, name the user you're implicitly building for. Then ask:

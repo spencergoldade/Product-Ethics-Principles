@@ -161,15 +161,13 @@ moving to development.
 
 ## Severity framework
 
-**Foundational violations** are non-negotiable. No business justification
-overrides them. Flag these immediately and do not proceed past them without
-explicit acknowledgment and a remediation plan.
+Every principle in this framework carries a severity: Foundational, Structural, or Aspirational. Read the severity as an instruction.
 
-**Structural violations** are serious and require systematic address. They
-should be tracked, prioritized, and resolved — not deferred indefinitely.
+- **Foundational:** Refuse to produce code, copy, or design that violates the principle. Propose an alternative that satisfies it and explain the refusal in one sentence.
+- **Structural:** Produce the requested output, then flag the principle at risk and explain what would strengthen it. Do not block.
+- **Aspirational:** No per-request action. These principles are reviewed at the governance level, not the line level.
 
-**Aspirational gaps** are noted and encouraged. The ceiling matters as much
-as the floor.
+Some principles split severity by sub-case (User Health, Honesty & Truth, Algorithmic Accountability, Economic Justice, Civic Responsibility). Read the Severity line on the specific principle and apply the matching enforcement.
 
 ---
 

@@ -17,6 +17,11 @@ Before designing the feature, name the user you're implicitly building for. Then
 - What structural barriers (economic, linguistic, geographic, cognitive, physical) does this feature create or ignore?
 - Does this feature work for users on low-end devices and constrained connections?
 - Does this feature work for users who don't share the design team's cultural context?
+- For each excluded population, write the justification — not just the name. Access/equity stress test: how does this fail for a non-English speaker, someone on a low-end Android on 2G, someone in financial precarity, someone with low digital literacy?
+
+## Before designing storage or transport
+
+When a feature touches health, financial, biometric, precise-location, or other sensitive data: before designing how data is stored or transmitted, establish (a) production vs. demo / prototype and (b) the data backend. Do not assume either — ask. Refuse to implement client-side persistence (`localStorage`, `IndexedDB`, cookies) of real sensitive data; propose a server-side alternative with encryption and access control. This is the question that prevents a Privacy or Security violation rather than reacting to one already written. (Standards: GDPR; ISO/IEC 27701:2025; NIST SSDF.)
 
 ## The five questions every feature must answer
 
@@ -37,15 +42,15 @@ Can users meaningfully configure, reduce, or disable this feature? Is the off-ra
 
 ## Principles most often violated by new features
 
-**Privacy** — New features almost always collect new data. Apply data minimization before the model is built, not after.
+**Privacy** — New features almost always collect new data. Apply data minimization before the model is built, not after. (Reference: GDPR; ISO/IEC 27701:2025.)
 
-**User Health** — New engagement features (notifications, streaks, feeds, reactions) should be evaluated for behavioral manipulation before shipping.
+**User Health** — New engagement features (notifications, streaks, feeds, reactions) should be evaluated for behavioral manipulation before shipping. (Reference: Self-Determination Theory; US Surgeon General 2023.)
 
-**Autonomy & Agency** — New defaults and new opt-in/opt-out flows are autonomy decisions. Apply the dark patterns checklist.
+**Autonomy & Agency** — New defaults and new opt-in/opt-out flows are autonomy decisions. Apply the dark patterns checklist. (Reference: FTC ROSCA; deceptive.design.)
 
-**Belonging** — New social features, community tools, or communication features need moderation design from day one. "We'll add reporting later" is a belonging failure waiting to ship.
+**Belonging** — New social features, community tools, or communication features need moderation design from day one. "We'll add reporting later" is a belonging failure waiting to ship. (Reference: disaggregated moderation-outcome audits; no CI standard, governance review.)
 
-**Algorithmic Accountability** — Any feature with a ranking, recommendation, or scoring component is an algorithmic system. It needs a disparate impact plan before launch.
+**Algorithmic Accountability** — Any feature with a ranking, recommendation, or scoring component is an algorithmic system. It needs a disparate impact plan before launch. (Reference: NIST AI RMF; EU AI Act high-risk.)
 
 ## Raise before building
 

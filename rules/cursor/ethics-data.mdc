@@ -22,6 +22,22 @@ When writing or reviewing data models, APIs, migrations, or backend logic, apply
 - [ ] Analytics and behavioral data pipelines are separated from operational data with documented access controls
 - [ ] Data shared with third parties is limited to what those parties need for their declared function
 
+### Privacy — how to check sensitive data
+
+Privacy is about the data, not the file type. The most privacy-sensitive code in a project is often a form writing real data to `localStorage` in a single HTML file — which matches no backend glob. Apply this whenever code reads or writes personal data, wherever it lives.
+
+**Crosses the line (Foundational, refuse) when:** the system stores, transmits, or infers *real* personal data without (a) a named necessary purpose, (b) a retention limit, and (c) protection matched to its sensitivity — or when sensitive data (health, financial, biometric, precise location, government ID, or behavioural data revealing these) is persisted client-side or sent to a third party the user never consented to.
+
+1. List every personal-data point the code touches: collected, stored, transmitted, inferred, or logged.
+2. Classify each as sensitive or ordinary PII.
+3. Confirm three floors per field: named purpose, retention limit, protection matched to sensitivity.
+4. **Storage-location check:** sensitive data must not persist in `localStorage`, `IndexedDB`, `sessionStorage`, cookies, or unencrypted client state in production — refuse, and propose server-side storage with encryption and access control. A demo with synthetic data is fine, but say so in the UI copy ("stays in your browser, not real, not transmitted").
+5. If an account UI exists, data export and deletion (DSAR + erasure) must be first-class actions.
+
+**Before designing storage or transport** for any feature touching sensitive data, establish (a) production vs. demo and (b) the data backend. Do not assume — ask. This prevents the violation; the checks above only catch it after the fact.
+
+Sources: GDPR → https://eur-lex.europa.eu/eli/reg/2016/679/oj · ISO/IEC 27701:2025 → https://www.iso.org/standard/27701 · CCPA → https://oag.ca.gov/privacy/ccpa · PIPEDA → https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/
+
 ## Security (Foundational)
 - [ ] Authentication uses industry-standard methods (OAuth 2.0, JWT with proper expiry, session management)
 - [ ] Passwords are hashed with bcrypt, Argon2, or scrypt — never MD5, SHA1, or plain text
@@ -31,6 +47,18 @@ When writing or reviewing data models, APIs, migrations, or backend logic, apply
 - [ ] Input is validated and sanitized; SQL injection, XSS, and CSRF protections are in place
 - [ ] Third-party dependencies are tracked for known vulnerabilities
 
+### Security — how to check
+
+**Crosses the line (Foundational, refuse) when:** code transmits or stores sensitive data without encryption, ships a known-vulnerable dependency, hardcodes a secret, or hashes passwords with a broken algorithm (MD5, SHA1, plaintext).
+
+1. Secrets: no credentials, tokens, or keys in source or client-visible code.
+2. Transport and storage: TLS 1.2+ in transit; encryption at rest for sensitive data.
+3. Passwords: bcrypt, Argon2, or scrypt only.
+4. Supply chain (the team's responsibility): no known-vulnerable packages, and track them. Where a build exists, wire dependency scanning, SAST/DAST, and secret scanning into CI, and produce an SBOM.
+5. Input: validate and sanitize; SQLi/XSS/CSRF protections present.
+
+Sources: NIST SSDF (SP 800-218) → https://csrc.nist.gov/Projects/ssdf · OWASP ASVS → https://owasp.org/www-project-application-security-verification-standard/ · OWASP Top 10 → https://owasp.org/Top10/2025/ · SBOM formats SPDX → https://spdx.dev/ · CycloneDX → https://cyclonedx.org/
+
 ## Algorithmic Accountability (Foundational — if ML/AI/ranking logic present)
 - [ ] Model training data sources are documented
 - [ ] Known demographic performance differentials are documented in a model card
@@ -38,10 +66,16 @@ When writing or reviewing data models, APIs, migrations, or backend logic, apply
 - [ ] Consequential decisions (hiring, credit, content removal, risk scoring) have a human review pathway
 - [ ] Users affected by algorithmic decisions can receive a plain-language explanation
 
+**Crosses the line when:** a consequential decision (hiring, credit, content removal, risk scoring) has no human-review pathway, or a ranking/scoring system ships without a disparate-impact plan or a model card.
+
+Sources: NIST AI RMF → https://www.nist.gov/itl/ai-risk-management-framework · EU AI Act high-risk → https://artificialintelligenceact.eu/ · Canada's Algorithmic Impact Assessment → https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/algorithmic-impact-assessment.html · Treasury Board Directive → https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32592
+
 ## Surveillance & Safety (Foundational)
 - [ ] Location data, read receipts, last-seen, and activity indicators have been evaluated for intimate partner violence misuse
 - [ ] Admin/operator visibility into user data is limited to what is operationally necessary and logged
 - [ ] APIs that could enable mass user surveillance have access controls and rate limiting
+
+Sources: UK Online Safety Act → https://www.legislation.gov.uk/ukpga/2023/50 · ICO Children's Code → https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/ · US Surgeon General 2023 advisory → https://www.hhs.gov/surgeongeneral/priorities/youth-mental-health/social-media/index.html
 
 ## Children's Data (Foundational — if product may be accessed by minors)
 - [ ] Data practices meet COPPA (US), GDPR Article 8 (EU), PIPEDA/CPPA (Canada) as applicable

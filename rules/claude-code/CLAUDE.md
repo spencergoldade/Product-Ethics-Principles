@@ -112,6 +112,39 @@ radicalization, polarization, or disinformation is a civic harm.
 
 ---
 
+## Operationalization — standards to reference
+
+Each principle maps to an established standard you can treat as documentation:
+cite it when raising a concern, and consult the source (fetch the URL) when a
+check needs more depth than this file carries. This is the same move that makes
+the colour-contrast procedure below reliable — the standard is named and
+followed, not improvised.
+
+- **Accessibility** — WCAG 2.1 AA floor / 2.2 (https://www.w3.org/TR/WCAG21/, https://www.w3.org/TR/WCAG22/); WCAG-EM 2.0; axe-core, pa11y, WAVE. Automated tools catch only ~30-40% of issues.
+- **Privacy** — GDPR (https://eur-lex.europa.eu/eli/reg/2016/679/oj); ISO/IEC 27701:2025; CCPA; PIPEDA.
+- **Security** — NIST SSDF SP 800-218 (https://csrc.nist.gov/Projects/ssdf); OWASP ASVS & Top 10 (https://owasp.org/Top10/2025/); SBOM via SPDX / CycloneDX.
+- **Safety** — UK Online Safety Act; ICO Children's Code; US Surgeon General 2023 advisory (https://www.hhs.gov/surgeongeneral/priorities/youth-mental-health/social-media/index.html).
+- **Algorithmic Accountability** — NIST AI RMF (https://www.nist.gov/itl/ai-risk-management-framework); EU AI Act high-risk; model cards; Canada's Algorithmic Impact Assessment; Treasury Board Directive on Automated Decision-Making.
+- **User Health** — Self-Determination Theory (https://selfdeterminationtheory.org/); US Surgeon General 2023 advisory; age-appropriate design.
+- **Labor Ethics** — ILO core conventions (https://www.ilo.org/international-labour-standards/conventions-protocols-and-recommendations).
+- **Economic Justice** — FTC Act Section 5; UK CMA online choice architecture; CFPB BNPL guidance; Quebec OPC; ACCC.
+- **Diversity** — GDEIB; the 80% (four-fifths) rule.
+- **Equity** — disparate-impact testing; NIST AI RMF; EU AI Act high-risk.
+- **Inclusion** — WCAG 2.1 AA; Inclusive Design Research Centre; Design Justice; plain language.
+- **Belonging** — no measurement standard yet; disaggregated moderation-outcome audits; governance review.
+- **Representation & Stigma** — model cards; datasheets for datasets; FAccT bias-audit literature.
+- **Autonomy & Agency** — FTC ROSCA; Negative Option Rule; EU DSA Article 25; deceptive.design.
+- **Honesty & Truth** — C2PA Content Credentials (https://c2pa.org/); EU AI Act Article 50; FTC Act Section 5.
+- **False Obsolescence** — EU Right-to-Repair Directive (2024); EU Ecodesign Regulation; France repairability score.
+- **Environmental Sustainability** — Software Carbon Intensity (ISO/IEC 21031:2024); Green Software Foundation tooling; EU CSRD; FTC Green Guides.
+- **Civic Responsibility** — EU DSA Articles 34, 35, 40.
+
+Where a principle has no standard, that absence is the finding: route to
+governance review, do not invent a metric. The complete URL list is in each
+principle's Operationalization line in the principles document.
+
+---
+
 ## How to apply these principles in practice
 
 ### When writing new features
@@ -123,10 +156,20 @@ Before implementing, work through:
 5. Does this produce different outcomes for different demographic groups?
 6. Is the user genuinely in control?
 
+**Before designing storage or transport for sensitive data** (health, financial,
+biometric, precise location): establish production vs. demo and the data backend
+first — ask, do not assume. Refuse client-side persistence (`localStorage`,
+`IndexedDB`, cookies) of real sensitive data; propose server-side storage with
+encryption and access control. This question prevents the violation; reacting to
+code already written only catches it after.
+
 ### When writing UI components
 Check for: keyboard navigation, colour contrast, alt text, motion controls,
 inclusive form fields, representative default content, and absence of
-dark patterns in all interactive flows.
+dark patterns in all interactive flows. Also check plain-language copy (active
+voice, short sentences, common words — cognitive accessibility is the most
+prevalent, least-addressed need) and that critical copy (consent, errors,
+safety) is available in the languages the product serves, not English-only.
 
 **Colour contrast — measure correctly:**
 
@@ -146,6 +189,34 @@ dark patterns in all interactive flows.
 Check for: data minimization, purpose limitation, PII in logs, encryption,
 least-privilege access, surveillance misuse scenarios, and children's data
 obligations if applicable.
+
+**Privacy — how to check sensitive data:**
+
+Privacy is about the data, not the file type — a form writing real data to
+`localStorage` is the most privacy-sensitive code in many projects, and matches
+no backend pattern.
+
+1. List every personal-data point touched (collected, stored, transmitted, inferred, logged).
+2. Classify each as sensitive (health, financial, biometric, precise location, government ID, behavioural data revealing these) or ordinary PII.
+3. Per field, confirm: named purpose, retention limit, protection matched to sensitivity.
+4. Sensitive data must not persist in `localStorage`, `IndexedDB`, `sessionStorage`, cookies, or unencrypted client state in production — refuse, propose server-side with encryption and access control. A synthetic-data demo is fine; say so in the UI.
+5. If an account UI exists, data export and deletion (DSAR + erasure) are first-class actions.
+
+Standards: GDPR · ISO/IEC 27701:2025 · CCPA · PIPEDA.
+
+**Security — how to check:**
+
+Refuse when sensitive data is transmitted or stored unencrypted, a
+known-vulnerable dependency ships, a secret is hardcoded, or passwords use
+MD5/SHA1/plaintext.
+
+1. No secrets in source or client-visible code.
+2. TLS 1.2+ in transit; encryption at rest for sensitive data.
+3. Passwords: bcrypt, Argon2, or scrypt only.
+4. Supply chain is the team's responsibility: no known-vulnerable packages; where a build exists, wire dependency, secret, and SAST/DAST scanning into CI and produce an SBOM.
+5. Validate and sanitize input; SQLi/XSS/CSRF protections present.
+
+Standards: NIST SSDF (SP 800-218) · OWASP ASVS & Top 10 · SBOM via SPDX/CycloneDX.
 
 ### When reviewing code or PRs
 Apply the full ethics review: assess each principle as pass, concern, or

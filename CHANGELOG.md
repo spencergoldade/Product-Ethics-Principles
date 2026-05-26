@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.0.5 (May 2026)
+- Distilled the operationalization layer into the Claude Code and Cursor rules.
+  Each principle's named standard now lives in the rules themselves, an
+  operationalization reference in `ethics-core.mdc` and `claude-code/CLAUDE.md`,
+  with source links in the UI, data, feature, spec, and review rules, so AI
+  tools can cite and consult the standard.
+- Added per-principle detection cues, run-verbatim Privacy and Security checks
+  (closing a client-side sensitive-data gap), a pre-design data-sensitivity
+  trigger, plain-language and language-availability checks, and a per-commit
+  Foundational checkpoint for agentic builds.
+
 ## v2.0.4 (May 2026)
 - Added `CI gates by Foundational principle` table to `rules/README.md`. Pairs Foundational and compound-Foundational principles with evidence-named CI tools. Rows without an evidence-named tool point to the relevant standard or review mode.
 - Bumped version markers across README, principles, and rules.

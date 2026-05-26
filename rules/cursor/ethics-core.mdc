@@ -54,5 +54,32 @@ Raise a concern whenever a design decision, feature, or implementation:
 
 When uncertain whether something raises a concern: **raise it**. The cost of a false positive is a conversation. The cost of a missed violation is harm.
 
+## Operationalization reference
+
+Each principle maps to an established standard, regulation, or measurement framework. Cite it when raising a concern; consult it (treat it as documentation) when a check needs more depth than these rules carry. Full URLs live in each principle's **Operationalization** line in the principles document, and in the source tails of `ethics-ui.mdc` and `ethics-data.mdc`.
+
+| # | Principle | Standard / framework to reference |
+|---|-----------|-----------------------------------|
+| 1 | Accessibility | WCAG 2.1 AA (floor) / 2.2; WCAG-EM 2.0; axe-core, pa11y, WAVE |
+| 2 | Diversity | GDEIB; the 80% (four-fifths) rule |
+| 3 | Equity | Disparate-impact testing (statistical parity, equalized odds, calibration); NIST AI RMF; EU AI Act high-risk categories |
+| 4 | Inclusion | WCAG 2.1 AA; Inclusive Design Research Centre; Design Justice; plain-language standards |
+| 5 | Belonging | No measurement standard exists yet; disaggregated moderation-outcome audits; governance review |
+| 6 | Privacy | GDPR; ISO/IEC 27701:2025; CCPA; PIPEDA |
+| 7 | Security | NIST SSDF (SP 800-218); OWASP ASVS, OWASP Top 10; SBOM (SPDX / CycloneDX) |
+| 8 | Safety | UK Online Safety Act; ICO Children's Code; US Surgeon General 2023 advisory |
+| 9 | Representation & Stigma | Model cards; datasheets for datasets; FAccT bias-audit literature |
+| 10 | Algorithmic Accountability | NIST AI RMF; EU AI Act high-risk; model cards; Canada's Algorithmic Impact Assessment; Treasury Board Directive on Automated Decision-Making |
+| 11 | User Health | Self-Determination Theory; US Surgeon General 2023 advisory; age-appropriate design defaults |
+| 12 | Autonomy & Agency | FTC ROSCA; Negative Option Rule; EU DSA Article 25; deceptive.design taxonomy |
+| 13 | Honesty & Truth | C2PA Content Credentials; EU AI Act Article 50; FTC Act Section 5 |
+| 14 | False Obsolescence | EU Right-to-Repair Directive (2024); EU Ecodesign for Sustainable Products Regulation; France repairability score |
+| 15 | Economic Justice | FTC Act Section 5; UK CMA online choice architecture; CFPB BNPL guidance; Quebec OPC; ACCC |
+| 16 | Environmental Sustainability | Software Carbon Intensity (ISO/IEC 21031:2024); Green Software Foundation (Carbon Aware SDK, Green Metrics Tool); EU CSRD; FTC Green Guides |
+| 17 | Labor Ethics | ILO core conventions; moderator-wellbeing programmes; supply-chain audit norms |
+| 18 | Civic Responsibility | EU DSA Articles 34, 35, 40 |
+
+Where a row notes no standard exists, that absence is itself the finding: route to governance review, do not invent a metric.
+
 Full principle definitions, anti-patterns, and failure modes:
 → github.com/spencergoldade/Product-Ethics-Principles/blob/main/principles/v2.0.0.md

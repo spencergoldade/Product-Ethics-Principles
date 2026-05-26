@@ -14,6 +14,10 @@ Use this when reviewing a pull request, conducting an ethics audit, or assessing
 
 For each principle below, assess: **pass**, **concern**, or **not applicable**. Document concerns with specific file/line references where possible. A concern is not a blocker by default — it is a required conversation before merge.
 
+Cite the operationalization standard for any concern you raise (see `ethics-core.mdc` → Operationalization reference, and the source tails in `ethics-ui.mdc` / `ethics-data.mdc`). "Fails WCAG 2.1 SC 1.4.3" beats "contrast looks low."
+
+In task-decomposed or agentic builds, run the Foundational checks before each commit that changes UI or touches data, not only at end-of-feature — that is where a Foundational issue rides through unnoticed.
+
 ---
 
 ## Foundational Principles (concerns here are merge blockers)

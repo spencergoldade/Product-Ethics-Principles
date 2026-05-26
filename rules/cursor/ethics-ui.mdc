@@ -18,6 +18,8 @@ When writing or reviewing UI components, apply these checks before completing an
 - [ ] Form inputs have associated `<label>` elements, not just placeholder text
 - [ ] Error messages are specific, visible, and not color-only
 - [ ] Touch targets are at least 44x44px
+- [ ] Copy meets plain-language standards: active voice, short sentences, common words (cognitive accessibility is the most prevalent, least-addressed need)
+- [ ] Critical copy (consent, errors, safety, crisis) is available in the languages the product serves, not English-only
 
 ### Colour Contrast & Text Size — How to Check
 
@@ -46,11 +48,17 @@ Common mistakes AI agents make:
 - Skipping the parent-walk when the element has no inline background, assuming "no background = white."
 - Flagging text as failing accessibility purely because it is small, without checking the size floors above.
 
+Sources: WCAG 2.1 AA → https://www.w3.org/TR/WCAG21/ · WCAG 2.2 → https://www.w3.org/TR/WCAG22/ · WCAG-EM 2.0 (structured evaluation) → https://www.w3.org/TR/WCAG-EM/ · axe-core → https://github.com/dequelabs/axe-core · pa11y → https://pa11y.org/ · WAVE → https://wave.webaim.org/. Automated checkers catch only ~30-40% of issues; they supplement the manual checks above, they don't replace them.
+
 ## Representation & Stigma (Structural)
 - [ ] Illustrations, avatars, and example content represent demographic diversity — not as decoration but as default
 - [ ] Form fields don't assume binary gender, Western name format, or nuclear family structure unless legally required
 - [ ] UI copy doesn't use stigmatizing, pathologizing, or dehumanizing language
 - [ ] Generated or stock imagery has been checked for demographic default bias
+
+**Crosses the line when:** a default (illustration, example name, generated face, or form field) silently encodes one demographic as the unmarked norm, or generated content skews demographically without being checked.
+
+Sources: model cards → https://arxiv.org/abs/1810.03993 · datasheets for datasets → https://arxiv.org/abs/1803.09010 · FAccT bias-audit literature → https://facctconference.org/2025/acceptedpapers.html
 
 ## Dark Patterns / Honesty (Foundational)
 - [ ] No confirmshaming ("No thanks, I don't want to save money")
@@ -59,10 +67,18 @@ Common mistakes AI agents make:
 - [ ] Privacy-protective choices are at least as prominent as permissive choices
 - [ ] Cancellation / opt-out flows are as simple as sign-up / opt-in flows
 
+**Crosses the line when:** the interface makes the platform-preferred action easier than the user-preferred one, or presents AI-generated content as if human-authored.
+
+Sources: deceptive.design taxonomy → https://www.deceptive.design/ · FTC Act Section 5 → https://www.ftc.gov/legal-library/browse/statutes/federal-trade-commission-act · EU DSA → https://digital-strategy.ec.europa.eu/en/policies/digital-services-act-package
+
 ## Autonomy & Defaults (Structural)
 - [ ] Default settings serve the user's interest, not the platform's
 - [ ] Every significant default can be documented with a user-interest rationale
 - [ ] Users can discover and change defaults without expert navigation
+
+**Crosses the line when:** a platform-preferred choice (subscribe, share, accept-all) is materially easier than its opposite (cancel, keep private, decline) — asymmetric steps, prominence, or friction.
+
+Sources: FTC ROSCA → https://www.ftc.gov/legal-library/browse/statutes/restore-online-shoppers-confidence-act · Negative Option Rule → https://www.ftc.gov/legal-library/browse/rules/negative-option-rule · EU DSA Article 25 → https://digital-strategy.ec.europa.eu/en/policies/digital-services-act-package · deceptive.design → https://www.deceptive.design/
 
 ## User Health (Foundational — if engagement features present)
 - [ ] No infinite scroll without a visible stopping point or user-controlled pagination
@@ -70,8 +86,14 @@ Common mistakes AI agents make:
 - [ ] Streak or reward mechanics don't generate loss aversion as a primary driver
 - [ ] Usage time indicators or break prompts are present if session length is a metric
 
+**Crosses the line when:** an engagement mechanic is tuned for re-engagement or time-on-platform rather than user value, with no well-being metric tracked alongside it.
+
+Sources: Self-Determination Theory → https://selfdeterminationtheory.org/ · US Surgeon General 2023 advisory → https://www.hhs.gov/surgeongeneral/priorities/youth-mental-health/social-media/index.html
+
 ## AI-Generated Content (Foundational — if applicable)
 - [ ] AI-generated text, images, audio, or video is labeled as such
 - [ ] Users can distinguish AI responses from human responses
+
+Sources: C2PA Content Credentials → https://c2pa.org/ · EU AI Act Article 50 → https://artificialintelligenceact.eu/article/50/
 
 **Raise before shipping:** If any check cannot be confirmed, raise it as a concern in the PR or design review. Do not mark "to be addressed later" without a linked issue and milestone.

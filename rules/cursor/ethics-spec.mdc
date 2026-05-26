@@ -26,13 +26,15 @@ These are not bureaucratic additions. They are design questions that will be ask
 - Who is the primary user for this feature?
 - Who are the secondary users (people affected by the feature who aren't using it directly)?
 - Which vulnerable populations (minors, domestic violence survivors, people in mental health crises, users in authoritarian contexts) could be affected?
-- Which users are implicitly excluded by the current design?
+- Which users are implicitly excluded by the current design? Write the justification for each excluded group — not just the name. Access/equity stress test: non-English speaker, low-end Android on 2G, financial precarity, low digital literacy.
 
 ### Data implications
 - What new data does this feature collect?
 - What is the minimum data required for this feature to function?
 - What is the retention period and deletion pathway?
 - What third parties will receive this data?
+
+(Standards: GDPR; ISO/IEC 27701:2025; CCPA; PIPEDA. Expose DSAR + deletion as first-class account features. For sensitive data, no client-side persistence in production.)
 
 ### Default state rationale
 - What are the defaults for this feature?
@@ -48,10 +50,14 @@ These are not bureaucratic additions. They are design questions that will be ask
 - What is the plan for disparate impact testing before launch?
 - How will affected users understand and contest algorithmic decisions?
 
+(Standards: NIST AI RMF; EU AI Act high-risk categories; model card at release.)
+
 ### Accessibility plan
 - What WCAG level is this feature targeting?
 - What assistive technology testing is planned?
 - What is the experience on low-end devices and constrained connections?
+
+(Standard: WCAG 2.1 AA floor / 2.2; plain-language and language availability for critical copy.)
 
 ## The six questions a spec must answer before it is complete
 

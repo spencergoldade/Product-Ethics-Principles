@@ -3,6 +3,8 @@
 AI agent rules and skills for applying the Product Ethics Principles
 in your development workflow.
 
+**Scope:** "Supported" means the tool reads these files as it works. That means Cursor and Claude Code only. Other apps, including ones built on Claude, can't load these rules, so the framework doesn't reach them.
+
 ---
 
 ### Severity-driven enforcement

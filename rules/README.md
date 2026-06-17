@@ -124,6 +124,6 @@ to address.
 
 ## Version
 
-These rules are calibrated to **Principles v2.0.5** (May 2026).
+These rules are calibrated to **Principles v2.0.6** (June 2026).
 When the principles are updated, rule files are updated in the same release.
 See the root CHANGELOG.md for version history.

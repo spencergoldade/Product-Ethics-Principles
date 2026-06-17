@@ -70,7 +70,9 @@ Read the principles. Apply them during design critique, feature review,
 and product audits. The ["at a glance"](principles/v2.0.0.md#the-principles-at-a-glance)
 section gives you the one-sentence definition for each.
 
-### With AI coding tools
+### Installing into AI coding tools
+
+These principles apply through tools you install the rule files into and the tool reads them as it works. Today that means Cursor and Claude Code only. A separate app that runs on Claude (or any model) underneath is a different thing: telling it to "follow the principles" doesn't install these files and won't apply the framework.
 
 Drop the rules and skills into your project so your AI tools apply
 the framework automatically:

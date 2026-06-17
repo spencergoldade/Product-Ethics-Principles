@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.0.6 (June 2026)
+- Clarified what "AI support" covers. A scope note in README and
+  `rules/README.md` distinguishes two things: installing the rule files
+  into Cursor or Claude Code, which then read them as they build, versus a
+  separate app that runs on Claude underneath. Telling that app to "follow
+  the principles" installs nothing, so the framework never reaches it.
+- Renamed the README section heading from "With AI coding tools" to
+  "Installing into AI coding tools," so the heading itself signals that
+  support is an install step.
+
 ## v2.0.5 (May 2026)
 - Distilled the operationalization layer into the Claude Code and Cursor rules.
   Each principle's named standard now lives in the rules themselves, an
